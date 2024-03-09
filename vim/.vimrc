@@ -31,9 +31,6 @@ set nobackup
 " Do not let cursor scroll below or above N number of lines when scrolling.
 set scrolloff=10
 
-" Do not wrap lines. Allow long lines to extend as far as the line goes.
-" set nowrap
-
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
@@ -72,6 +69,9 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " PLUGINS ---------------------------------------------------------------- {{{
 
 " Plugin code goes here.
+" Plugin Configuration
+" 
+" """""""""""""""""""""""""""""""""""
 " Automatic installation of vim-plug if not found 
 " --sync flag is for blocking  execution until the installer finishes
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -85,7 +85,31 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
+
+""""""""""""""""""""""""""""""""""""""
+call plug#begin()
+" +-------------------+
+" |  Development Env  |
+" +-------------------+
+" Prettier code formatting tool
+Plug 'prettier/vim-prettier', {  
+            \ 'do': 'yarn install', 
+            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
+" file tree view
+Plug 'preservim/nerdtree'
+
+"Asynchronous Lint Engine
+Plug 'dense-analysis/ale'
+
+" Javascript syntax highlighting
+Plug 'pangloss/vim-javascript'
+
+
+call plug#end()
+"""""""""""""""""""""""""""""""""""""""
 " }}}
+
 
 
 " MAPPINGS --------------------------------------------------------------- {{{
