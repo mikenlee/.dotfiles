@@ -69,10 +69,8 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " PLUGINS ---------------------------------------------------------------- {{{
 
 " Plugin code goes here.
-" Plugin Configuration
-" 
-" """""""""""""""""""""""""""""""""""
-" Automatic installation of vim-plug if not found 
+"""""""""""""""""""""""""""""""""""""
+" Automatic installation of vim-plug if not found
 " --sync flag is for blocking  execution until the installer finishes
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -92,8 +90,8 @@ call plug#begin()
 " |  Development Env  |
 " +-------------------+
 " Prettier code formatting tool
-Plug 'prettier/vim-prettier', {  
-            \ 'do': 'yarn install', 
+Plug 'prettier/vim-prettier', {
+            \ 'do': 'yarn install',
             \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " file tree view
@@ -108,6 +106,16 @@ Plug 'pangloss/vim-javascript'
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""
+" Plugin Configurations
+" ALE - run fixers to format code in Vim buffer
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
+
+" Fix files automatically on save
+let g:ale_fix_on_save = 1
+
 " }}}
 
 
@@ -137,7 +145,7 @@ augroup END
 " +-----------------------+
 " |   Cursor Block/Beam   |
 " +-----------------------+
-" change cursor betwen NORMAL and INSERT modes 
+" change cursor betwen NORMAL and INSERT modes
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
@@ -145,8 +153,8 @@ let &t_EI = "\e[2 q"
 augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
+autocmd VimLeave * silent !echo -ne "\e[5 q"
 augroup END
-
 
 " +--------------------+
 " |   Soft Wrap Text   |

@@ -24,8 +24,8 @@ PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 zstyle ':vcs_info:git:*' formats '%b '
 
 # aliases for opening/loading faster
-alias bp='vim ~/dotfiles/.zshrc'
-alias sa='source ~/dotfiles/.zshrc;echo "ZSH aliases sourced."'
+alias bp='vim ~/dotfiles/zsh/.zshrc'
+alias sa='source ~/dotfiles/zsh/.zshrc;echo "ZSH aliases sourced."'
 
 # +-------------+
 # |  VI KEYMAP  |
@@ -62,7 +62,7 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ##} Change cursor
 ##  source "/Users/admin/dotfiles/zsh/plugins/cursor_mode"
- 
+
 # +------------------------------+
 # |  Python Virtual Environment  |
 # +------------------------------+
@@ -85,4 +85,3 @@ function ve() {
         source .venv/bin/activate
     fi
 }
-
