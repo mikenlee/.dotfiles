@@ -103,7 +103,8 @@ Plug 'dense-analysis/ale'
 " Javascript syntax highlighting
 Plug 'pangloss/vim-javascript'
 
-
+" Autocomplete
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 """""""""""""""""""""""""""""""""""""""
 " Plugin Configurations
@@ -117,7 +118,6 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " }}}
-
 
 
 " MAPPINGS --------------------------------------------------------------- {{{
@@ -152,7 +152,7 @@ let &t_EI = "\e[2 q"
 " reset the cursor on start (for older versions of vim, usually not required)
 augroup myCmds
 au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
+autocmd VimEnter * startinsert
 autocmd VimLeave * silent !echo -ne "\e[5 q"
 augroup END
 
