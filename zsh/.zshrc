@@ -11,6 +11,9 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # tab-completion library
 autoload -Uz compinit && compinit
 
+# case-insensitive matching only if there are no case-sensitive matches
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
 # vcs_info framework for getting information from version control systems
 autoload -Uz vcs_info
 precmd() { vcs_info }
