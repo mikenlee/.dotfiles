@@ -1,7 +1,4 @@
 # add to the PATH variable and ensure these directories are listed before other paths to prioritize them
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
-# set up hjkl keys to navigate the completion menu in Zsh using complist module
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -27,8 +24,8 @@ PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 zstyle ':vcs_info:git:*' formats '%b '
 
 # aliases for opening/loading faster
-alias bp='vim ~/dotfiles/zsh/.zshrc'
-alias sa='source ~/dotfiles/zsh/.zshrc;echo "ZSH aliases sourced."'
+alias bp='vim ~/.dotfiles/zsh/.zshrc'
+alias sa='source ~/.dotfiles/zsh/.zshrc;echo "ZSH aliases sourced."'
 
 # +-------------+
 # |  VI KEYMAP  |
