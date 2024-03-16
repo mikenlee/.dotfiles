@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Define the path to the dot files directory
-DOTFILES_DIR="/Users/admin/dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles"
 
 # Read the configuration file listing dot files and their paths
 while IFS= read -r line; do
@@ -11,6 +11,6 @@ while IFS= read -r line; do
 
     # Create symbolic link from dot files directory to home directory
     ln -s "$DOTFILES_DIR/$dotfile" "$HOME/$target_path"
-done < "install.conf"
+done < "$HOME/.dotfiles/install.conf"
 
 echo "Symbolic links created successfully."
