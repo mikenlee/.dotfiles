@@ -26,6 +26,8 @@ zstyle ':vcs_info:git:*' formats '%b '
 # aliases for opening/loading faster
 alias bp='vim ~/.dotfiles/zsh/.zshrc'
 alias sa='source ~/.dotfiles/zsh/.zshrc;echo "ZSH aliases sourced."'
+# alias for python3
+alias python='/usr/bin/python3'
 
 # +-------------+
 # |  VI KEYMAP  |
